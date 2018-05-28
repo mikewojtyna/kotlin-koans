@@ -5,11 +5,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class N16FlatMapKtTest {
-    @Test fun testGetOrderedProductsSet() {
+    @Test
+    fun testGetOrderedProductsSet() {
         assertEquals(setOf(idea), customers[reka]!!.orderedProducts)
     }
 
-    @Test fun testGetAllOrderedProducts() {
+    @Test
+    fun testGetAllOrderedProducts() {
         assertEquals(orderedProducts, shop.allOrderedProducts)
     }
 }
