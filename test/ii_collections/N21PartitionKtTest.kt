@@ -7,7 +7,11 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class N21PartitionKtTest {
-    @Test fun testGetCustomersWhoHaveMoreUndeliveredOrdersThanDelivered() {
-        assertEquals(setOf(customers[reka]), shop.getCustomersWithMoreUndeliveredOrdersThanDelivered())
+    @Test
+    fun testGetCustomersWhoHaveMoreUndeliveredOrdersThanDelivered() {
+        assertEquals(
+            setOf(customers[reka]),
+            shop.getCustomersWithMoreUndeliveredOrdersThanDelivered()
+        )
     }
 }
