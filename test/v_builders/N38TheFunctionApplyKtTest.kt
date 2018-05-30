@@ -5,7 +5,8 @@ import org.junit.Test
 import java.util.*
 
 class N38TheFunctionApplyKtTest {
-    @Test fun testBuildString() {
+    @Test
+    fun testBuildString() {
         val expected = StringBuilder().apply {
             append("Numbers: ")
             for (i in 1..10) {
@@ -16,7 +17,8 @@ class N38TheFunctionApplyKtTest {
         assertEquals("String should be built:", expected, actual)
     }
 
-    @Test fun testBuildMap() {
+    @Test
+    fun testBuildMap() {
         val expected = HashMap<Int, String>().apply {
             put(0, "0")
             for (i in 1..10) {
@@ -24,6 +26,10 @@ class N38TheFunctionApplyKtTest {
             }
         }
         val actual = buildMap()
-        assertEquals("Map should be filled with the right values", expected, actual)
+        assertEquals(
+            "Map should be filled with the right values",
+            expected,
+            actual
+        )
     }
 }

@@ -16,7 +16,7 @@ fun todoTask35(): Nothing = TODO(
         Store only the time in milliseconds in 'timeInMillis' property.
         Use the extension functions 'MyDate.toMillis' and 'Long.toDate'.
     """,
-    references = { date: MyDate -> date.toMillis().toDate()}
+    references = { date: MyDate -> date.toMillis().toDate() }
 )
 
 class D {
@@ -29,8 +29,16 @@ class D {
 class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
     var timeInMillis: Long? = null
 
-    operator override fun getValue(thisRef: R, property: KProperty<*>): MyDate = todoTask35()
-    operator override fun setValue(thisRef: R, property: KProperty<*>, value: MyDate) = todoTask35()
+    operator override fun getValue(thisRef: R, property: KProperty<*>): MyDate =
+        timeInMillis!!.toDate()
+
+    operator override fun setValue(
+        thisRef: R,
+        property: KProperty<*>,
+        value: MyDate
+    ) {
+        timeInMillis = value.toMillis()
+    }
 }
 
 fun MyDate.toMillis(): Long {
@@ -43,5 +51,9 @@ fun MyDate.toMillis(): Long {
 fun Long.toDate(): MyDate {
     val c = Calendar.getInstance()
     c.timeInMillis = this
-    return MyDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE))
+    return MyDate(
+        c.get(Calendar.YEAR),
+        c.get(Calendar.MONTH),
+        c.get(Calendar.DATE)
+    )
 }
