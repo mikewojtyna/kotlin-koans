@@ -4,15 +4,24 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class N31InvokeKtTest {
-    @Test fun testTask17() {
+    @Test
+    fun testTask17() {
         assertEquals(4, task31(Invokable()))
     }
 
-    @Test fun testNumberOfInvocations() {
+    @Test
+    fun testNumberOfInvocations() {
         val message = "The number of invocations is incorrect"
-        fun testInvokable(numberOfInvocations: Int, invokeSeveralTimes: (Invokable) -> Invokable) {
+        fun testInvokable(
+            numberOfInvocations: Int,
+            invokeSeveralTimes: (Invokable) -> Invokable
+        ) {
             val invokable = Invokable()
-            assertEquals(message, numberOfInvocations, invokeSeveralTimes(invokable).getNumberOfInvocations())
+            assertEquals(
+                message,
+                numberOfInvocations,
+                invokeSeveralTimes(invokable).getNumberOfInvocations()
+            )
         }
 
         testInvokable(1) { it() }
